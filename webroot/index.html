@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset='utf-8'>
+<title>Nginx auth sample</title>
+<h1>Nginx auth sample</h1>
+
+<p>
+    <a href='/private/index.html'>/private/index.html</a> is a page requiring login. If you try to browse before logging in, Nginx will return 401. After logging in you can see the contents.
+</p>
+<h2>Preview</h2>
+<p>
+    <a id='login' href='/auth/login'>[[ Login ]]</a>
+    <a id='logout' href='/auth/logout'>[[ Logout ]]</a>
+</p>
+<iframe src='/private/' width="600" height="600">

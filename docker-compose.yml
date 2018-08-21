@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    image: "nginx:alpine"
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./webroot:/var/www/html 
+    links:
+      - backend:backend
+  backend:
+    image: "python:3.6-alpine"
+    command: /bin/sh -xcv "pip install -r requirements.txt && FLASK_APP=src/app.py flask run -h 0.0.0.0 -p 8888"
+    volumes:
+      - ./:/opt/backend
+    working_dir: /opt/backend
+
+
